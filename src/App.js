@@ -35,7 +35,7 @@ function App() {
         <div className="text-center">
           <div className="animate-spin rounded-full h-20 w-20 border-t-4 border-b-4 border-primary mx-auto mb-4"></div>
           <h2 className="text-2xl font-bold text-primary">Loading...</h2>
-          <p className="text-gray-600 dark:text-gray-400">Rajan.dev</p>
+          <p className="text-gray-600 dark:text-gray-400">Rajan</p>
         </div>
       </div>
     );
@@ -43,15 +43,24 @@ function App() {
 
   return (
     <Router>
-      <div className={`min-h-screen ${darkMode ? 'dark bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
+      <div className={`min-h-screen transition-colors duration-300 relative ${darkMode ? 'dark' : ''}`}>
+        {/* Global Premium Grid Pattern Background */}
+        <div className="grid-bg-container">
+          <div className="grid-bg"></div>
+          <div className="radial-glow"></div>
+          <div className="radial-glow-secondary"></div>
+        </div>
+        
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/skills" element={<Skills />} />
-        </Routes>
+        <main className="relative z-10">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
         <Footer />
       </div>
     </Router>
